@@ -6,6 +6,7 @@ from fuzzywuzzy import fuzz
 import traceback
 
 def get_optimized_url(name, fields):
+    # construct api endpoint url with params: college name, fields indicating desired variables 
     name = name.replace("&", "")
     name = name.replace(".", "")
     base = "https://api.data.gov/ed/collegescorecard/v1/schools.json?school.name={name}&fields=".format(name=name)
@@ -14,6 +15,7 @@ def get_optimized_url(name, fields):
     return base 
 
 def extract_salary(data):
+    # function for sorting salaries
     try:
         # Also convert to int since update_time will be string.  When comparing
         # strings, "10" is smaller than "2".
@@ -24,6 +26,7 @@ def extract_salary(data):
         return 0
 
 def extract_grads(data):
+    # function for sorting counts
     try:
         if data['counts']['ipeds_awards2'] is None:
             return 0
@@ -32,6 +35,7 @@ def extract_grads(data):
         return 0 
 
 def delete_keys(dict_, keys):
+    # lives up to its name :P
     for key in keys:
         del dict_[key]
     return dict_
@@ -45,6 +49,7 @@ with open('data.json') as d:
 with open('new_data.json') as j:
     new_data = json.load(j)
 
+# names of the variables to be received from api endpoint
 fields = [
           'school.name', 'school.ownership', 'latest.admissions.admission_rate.overall', 
           'latest.student.retention_rate.four_year.full_time', 'latest.student.size', 
@@ -73,24 +78,25 @@ duplicate_keys = ['school.school_url', 'school.name', 'latest.programs.cip_4_dig
 
 try:
     for c in listOfColleges:
-        c = {k: v for k, v in c.items() if k != ""}
+        c = {k: v for k, v in c.items() if k != ""} # removes empty key, value pairs
         c_name = c['college_name']
-        print(c_name)
+        # print(c_name)
         website = c['domain']
         url = get_optimized_url(c_name, fields)
         r = requests.get(url, headers=headers)
         responseJSON = r.json()
         for college in responseJSON['results']:
             if len(college['school.name'].split(" ")) == len(c_name.split(" ")) and (fuzz.WRatio(college['school.name'], c_name) >= 99 or fuzz.WRatio(college['school.school_url'], website) >= 99):
+                # sometimes the response has multiple colleges that closely match, the if statement makes sure we're getting the correct data
                 biggestMajors = []
                 highestEarningMajors = []
-                college['latest.programs.cip_4_digit'].sort(key=extract_grads, reverse=True)
+                college['latest.programs.cip_4_digit'].sort(key=extract_grads, reverse=True) # sort entries by number count
                 for i in range(5):
                     if i > len(college['latest.programs.cip_4_digit']) - 1:
                         biggestMajors.append(None)
                     else:
                         biggestMajors.append(college['latest.programs.cip_4_digit'][i])
-                college['latest.programs.cip_4_digit'].sort(key=extract_salary, reverse=True)
+                college['latest.programs.cip_4_digit'].sort(key=extract_salary, reverse=True) # sort entries by number of grads
                 for i in range(5):
                     if i > len(college['latest.programs.cip_4_digit']) - 1:
                         highestEarningMajors.append(None)
