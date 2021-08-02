@@ -1,0 +1,116 @@
+{
+    "college_name": "Alabama A & M University",
+    "address": "4900 Meridian Street",
+    "city": "Normal",
+    "state": "Alabama",
+    "domain": "www.aamu.edu/",
+    "graduation_rate": 30,
+    "tuition": 10024,
+    "percent_financial_aid": 90,
+    "ACT_25_Percentile": 15,
+    "ACT_75_Percentile": 19,
+    "application_total": 9579,
+    "total_enrollment": 6686,
+    "popular_majors": [
+        {
+            "title": "Social Work",
+            "credential": "Master's Degree",
+            "counts": "79",
+            "earnings": "37819"
+        },
+        {
+            "title": "Clinical, Counseling and Applied Psychology",
+            "credential": "Master's Degree",
+            "counts": "54",
+            "earnings": "34793"
+        },
+        {
+            "title": "Biology, General",
+            "credential": "Bachelors Degree",
+            "counts": "47",
+            "earnings": "26353"
+        },
+        {
+            "title": "Business Administration, Management and Operations",
+            "credential": "Bachelors Degree",
+            "counts": "42",
+            "earnings": "39153"
+        },
+        {
+            "title": "Psychology, General",
+            "credential": "Bachelors Degree",
+            "counts": "32",
+            "earnings": "19227"
+        }
+    ],
+    "top_salaries": [
+        {
+            "title": "Electrical, Electronics and Communications Engineering",
+            "credential": "Bachelors Degree",
+            "counts": "28",
+            "earnings": null
+        },
+        {
+            "title": "Communication Disorders Sciences and Services",
+            "credential": "Master's Degree",
+            "counts": "28",
+            "earnings": null
+        },
+        {
+            "title": "Computer and Information Sciences, General",
+            "credential": "Bachelors Degree",
+            "counts": "30",
+            "earnings": null
+        },
+        {
+            "title": "Mechanical Engineering",
+            "credential": "Bachelors Degree",
+            "counts": "27",
+            "earnings": null
+        },
+        {
+            "title": "Educational Administration and Supervision",
+            "credential": "Master's Degree",
+            "counts": "4",
+            "earnings": null
+        }
+    ],
+    "admission_rate": 0.9175,
+    "retention_rate": 0.5689,
+    "undergrad_size": 5271,
+    "act_english_25": 14,
+    "act_english_75": 20,
+    "act_math_25": 15,
+    "act_math_75": 18,
+    "sat_reading_25": 430,
+    "sat_reading_75": 510,
+    "sat_math_25": 410,
+    "sat_math_75": 500,
+    "men": 0.3967,
+    "women": 0.6033,
+    "white": 0.014,
+    "black": 0.9072,
+    "hispanic": 0.0091,
+    "asian": 0.0019,
+    "aian": 0.0021,
+    "nhpi": 0.0011,
+    "two_or_more": 0.0114,
+    "non_resident_alien": 0.007,
+    "unknown": 0.0461,
+    "avg_total_cost": 23053,
+    "in_state_tuition": 10024,
+    "out_of_state_tuition": 18634,
+    "net_tuition_revenue": 7870,
+    "instructional_expenditure": 5546,
+    "faculty_salary": 7709,
+    "pell_grant_rate": 0.7019,
+    "ownership": 1,
+    "price_calculator_url": "www.aamu.edu/admissions-aid/tuition-fees/net-price-calculator.html",
+    "locale": 12,
+    "carnegie_size_setting": 14,
+    "latitude": 34.783368,
+    "longitude": -86.568502,
+    "red": 117,
+    "green": 22,
+    "blue": 23
+}

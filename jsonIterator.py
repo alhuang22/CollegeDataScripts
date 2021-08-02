@@ -25,8 +25,6 @@ def extract_salary(data):
 
 def extract_grads(data):
     try:
-        # Also convert to int since update_time will be string.  When comparing
-        # strings, "10" is smaller than "2".
         if data['counts']['ipeds_awards2'] is None:
             return 0
         return data['counts']['ipeds_awards2']
@@ -73,7 +71,6 @@ fields = [
 duplicate_keys = ['school.school_url', 'school.name', 'latest.programs.cip_4_digit']
 # duplicate_keys_original = ['SAT_W_75_Percentile', 'SAT_M_75_Percentile']
 
-# make sure to delete duplicate SAT score 25th percentile!!!!!
 try:
     for c in listOfColleges:
         c = {k: v for k, v in c.items() if k != ""}
